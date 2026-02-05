@@ -1,0 +1,224 @@
+/* ================================
+   GLOBAL VARIABLES
+================================ */
+:root{
+  --accent:#2b7a78;
+  --accent-dark:#1f5a55;
+  --text:#222;
+  --text-muted:#555;
+  --bg:#f4f7f6;
+  --card-bg:#ffffff;
+  --radius:16px;
+  --max-width:1200px;
+
+  --fs-base:18px;
+  --fs-small:16px;
+  --fs-h3:1.35rem;
+  --fs-h2:2.2rem;
+}
+
+/* ================================
+   RESET & BASE
+================================ */
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  font-family:"Noto Sans JP", system-ui, -apple-system, "Hiragino Kaku Gothic ProN", "メイリオ", Arial;
+  font-size:var(--fs-base);
+  line-height:1.7;
+  color:var(--text);
+
+  /* ===== BACKGROUND IMAGE ===== */
+  background-image:url("https://img.freepik.com/free-vector/blue-curve-frame-template_53876-116707.jpg?semt=ais_hybrid&w=740&q=80"); /* đổi tên ảnh của bạn */
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+  background-repeat:no-repeat;
+}
+
+/* Overlay giúp chữ dễ đọc */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:rgba(255,255,255,0.65); /* chỉnh độ mờ */
+  backdrop-filter:blur(2px);
+  z-index:-1;
+}
+
+.container{
+  max-width:var(--max-width);
+  margin:0 auto;
+  padding:1.5rem;
+}
+
+/* ================================
+   HEADER
+================================ */
+.site-header{
+  background:var(--card-bg);
+  border-bottom:1px solid #e5e5e5;
+  position:sticky;
+  top:0;
+  z-index:50;
+}
+.site-header .container{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:1rem 1.5rem;
+}
+.logo{
+  font-size:1.5rem;
+  font-weight:800;
+  color:var(--accent);
+}
+
+/* ================================
+   BUTTONS
+================================ */
+.btn{
+  display:inline-block;
+  padding:0.85rem 1.4rem;
+  background:var(--accent);
+  color:#fff;
+  text-decoration:none;
+  border-radius:12px;
+  font-weight:700;
+  font-size:1rem;
+  transition:0.15s ease;
+}
+.btn:hover{
+  background:var(--accent-dark);
+  transform:translateY(-3px);
+}
+
+/* ================================
+   HERO
+================================ */
+.hero{
+  background:rgba(255,255,255,0.6);
+  text-align:center;
+  padding:4rem 1rem 3rem;
+  border-radius:20px;
+}
+.hero h2{
+  font-size:var(--fs-h2);
+  font-weight:800;
+  margin-bottom:1rem;
+}
+.hero p{
+  font-size:1.15rem;
+  color:var(--text-muted);
+  margin-bottom:1.5rem;
+}
+
+/* ================================
+   PRODUCT GRID (CARD RỘNG)
+================================ */
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(500px, 1fr));
+  gap:2rem;
+  margin-top:2rem;
+}
+
+/* ================================
+   CARD
+================================ */
+.card{
+  background:#fff;
+  border-radius:16px;
+  padding:1.2rem;
+  border:1px solid #e8eceb;
+  box-shadow:0 10px 28px rgba(18,40,36,0.06);
+  display:flex;
+  flex-direction:column;
+  gap:1.2rem;
+  transition:0.18s ease;
+}
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 18px 40px rgba(18,40,36,0.12);
+}
+
+.card h3{
+  font-size:var(--fs-h3);
+  font-weight:700;
+}
+.card p{
+  font-size:1.05rem;
+  color:var(--text-muted);
+}
+
+/* ================================
+   GALLERY — 2 ẢNH TO
+================================ */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:1rem;
+}
+
+.thumb{
+  width:100%;
+  border-radius:16px;
+  overflow:hidden;
+  background:#f0f0f0;
+  border:1px solid #e2e5e4;
+  aspect-ratio: 16 / 10;
+}
+
+.thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .25s ease;
+}
+.thumb:hover img{
+  transform:scale(1.06);
+}
+
+/* ================================
+   LINKS
+================================ */
+.links{
+  margin-top:auto;
+  display:flex;
+  justify-content:center;
+}
+
+/* ================================
+   CONTACT
+================================ */
+.contact{
+  margin-top:3rem;
+  padding-top:2rem;
+  border-top:1px dashed #ddd;
+}
+
+/* ================================
+   FOOTER
+================================ */
+.site-footer{
+  margin-top:3rem;
+  padding:1.5rem;
+  text-align:center;
+  background:var(--card-bg);
+  border-top:1px solid #e5e5e5;
+}
+
+/* ================================
+   MOBILE
+================================ */
+@media(max-width:720px){
+  .products{
+    grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+  }
+  .gallery{
+    grid-template-columns:1fr;
+  }
+  .thumb{
+    aspect-ratio: 16 / 9;
+  }
+}
